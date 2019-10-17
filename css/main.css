@@ -1,0 +1,133 @@
+body {
+    background: var(--main-color-light-tint);
+}
+
+.main-nav {
+    margin-top: 25px;
+}
+
+.navbar-default .navbar-nav > li {
+    border: 1px solid #ffffff;
+    margin: 0 3px;
+}
+
+.navbar-default .navbar-nav > li.current-menu-item1 > a {
+    color: #fff;
+    /*background-color: #045c7e;*/
+    padding: 8px 10px;
+}
+
+.navbar-default .navbar-nav > li.current-menu-item1 > a:hover {
+    color: #fff;
+    background-color: #045c7e;
+}
+
+.section-headerone .h2 {
+    text-align: left;
+    margin-bottom: -60px;
+}
+
+.banner-box {
+    height: 384px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 3px 2px 5px #00000042;
+}
+
+.banner-box-excel-file {
+    text-align: center;
+    height: auto;
+    padding: 20px;
+    background-color: #fff;
+    -moz-box-shadow: 0 1px 8px #eee;
+    box-shadow: 3px 4px 6px 0px #00000045;
+}
+
+.text-footer {
+    padding: 0px;
+}
+
+.left-states li p {
+    text-align: left;
+}
+
+.text-footer > p {
+    padding-bottom: 0px;
+}
+
+.text-footer > h5 {
+    border-bottom: 1px solid #008fc7;
+    font-size: 14px;
+    line-height: 18px;
+    padding-bottom: 8px;
+}
+
+.border-card .banner-box-excel-file {
+    border: solid 1px #008fc754;
+    background: radial-gradient(#ffffff, #45a6c72b);
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.border-card .banner-box-excel-file button {
+    border: none;
+    font-family: "Poppins", Arial, sans-serif;
+    background: var(--main-color-light-accent);
+    border-radius: 3px;
+    color: var(--main-color-dark);
+    margin-top: 5px;
+    box-shadow: 1px 1px 4px var(--main-color-dark);
+}
+
+.title-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.border-card .banner-box-excel-file button:hover {
+    background: var(--main-color-text);
+}
+
+.banner-box p {
+    text-align: left !important;
+}
+
+
+.text-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 215px;
+    border: solid 1px #008fc754;
+    background: radial-gradient(#ffffff, #45a6c72b);
+    box-shadow: none;
+    border-radius: 5px;
+
+}
+
+.text-card ul {
+    width: 90%;
+}
+
+.text-card li {
+
+}
+
+.text-card a {
+    transition: 200ms ease;
+    color: var(--main-color);
+}
+
+.text-card a:hover {
+    border-bottom: var(--main-color) solid 1px;
+}
+a {
+    color: var(--main-color);
+}
+a:hover {
+    color: var(--main-color-secondary);
+}
+input.a_search::placeholder {
+    padding-left: 10px;
+}

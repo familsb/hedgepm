@@ -1,0 +1,251 @@
+<style>
+
+    .navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--main-color-light);
+        display: flex;
+        width: 100%;
+        height: 80px;
+        transition: 300ms ease-in-out;
+    }
+
+
+    body {
+        margin-top: 60px;
+    }
+
+    .navigation > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navigation > div:first-child {
+        flex: 15%;
+        justify-content: center;
+        border-right: 1px solid var(--main-color-light-accent);
+    }
+
+    .navigation > div:nth-child(2) {
+        flex: 80%;
+    }
+
+    .navigation > div:last-child {
+        flex: 60px;
+        border-left: 1px solid var(--main-color-light-accent);
+    }
+
+    .navigation > div:last-child img {
+        width: 32px;
+        height: auto;
+
+    }
+
+    .logo-content {
+        font-weight: 900;
+        font-size: 30px;
+        color: var(--main-color-text);
+        text-align: center;
+        user-select: none;
+    }
+
+    .logo-content span {
+        color: var(--main-color-dark);
+    }
+
+    .nav-menu-list {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        float: right;
+        flex-wrap: nowrap;
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 20px;
+
+    }
+
+
+    .nav-menu-list li {
+        white-space: nowrap;
+        margin: 0 5px;
+        transition: 200ms ease;
+        padding: 5px 7px;
+        background: var(--main-color-light);
+        border: solid 1px var(--main-color-text);
+        border-radius: 4px;
+    }
+
+    .nav-menu-list li a {
+        color: var(--main-color-text);
+        transition: 300ms;
+        font-size: 16px;
+    }
+
+    .nav-menu-list li:hover {
+        background: var(--main-color-dark);
+    }
+
+    .menu-draw-responsive {
+        display: none;
+        cursor: pointer;
+        user-select: none;
+        transition: 200ms;
+
+    }
+
+    .arrow-down {
+        transition: 200ms;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #fff;
+        align-self: center;
+        margin-left: 5px;
+    }
+
+
+    @media (max-width: 1200px) {
+        .nav-menu-list li a {
+            font-size: 16px;
+        }
+
+        .logo-content, .logo-content span {
+            font-size: 24px;
+            transition: 200ms;
+        }
+
+        .navigation {
+            height: 45px;
+            transition: 200ms;
+        }
+
+        body {
+            margin-top: 45px;
+        }
+
+    }
+
+    @media (max-width: 1000px) {
+        .ul-responsive {
+            display: none;
+        }
+
+        .menu-draw-responsive {
+            display: flex;
+            color: white;
+            font-size: 24px;
+        }
+
+        .menu-draw-responsive:active {
+            color: var(--main-color-dark);
+        }
+
+        .menu-draw-responsive:active span {
+            border-top: 5px solid var(--main-color-dark);
+
+        }
+
+        .navigation > div:nth-child(2) {
+            flex: auto;
+        }
+
+        .show-menu {
+            display: block !important;
+            position: fixed;
+            width: 80vw;
+            top: 45px;
+            transition: 200ms;
+            overflow: hidden;
+        }
+    }
+</style>
+
+
+<div id="mainNav" class="navigation close-navigation">
+    <div>
+        <a href="main.html">
+        <span class="logo-content">hedge<span>pm</span></span>
+        </a>
+    </div>
+    <div id="navDiv">
+        <div id="menuResponsiveButton" class="menu-draw-responsive">MENU <span class="arrow-down"></span></div>
+        <ul id="navContents" class="nav-menu-list ul-responsive">
+            <li>
+                <a href="#">Online Course</a>
+            </li>
+            <li>
+                <a href="#">Videos</a>
+            </li>
+            <li>
+                <a href="data.html">Data</a>
+            </li>
+            <li>
+                <a href="#">Certification</a>
+            </li>
+            <li>
+                <a href="#">Mentoring</a>
+            </li>
+            <li>
+                <a href="faq.html">FAQ</a>
+            </li>
+            <li>
+                <a href="contact_us.html">Contact US</a>
+            </li>
+            <li>
+                <a href="blog.html">Our blog</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <img alt="search" src="img/svg/search-white.svg"/>
+    </div>
+</div>
+
+
+<script>
+    $(() => {
+        const navbar = byId("mainNav");
+        const menuContents = byId("navContents");
+        const menuListButton = byId("menuResponsiveButton");
+        const navDiv = byId("navDiv");
+
+        window.addEventListener("scroll", function (ev) {
+            const scrollY = window.scrollY;
+            if (scrollY >= 100) {
+
+            }
+        });
+
+        menuListButton.addEventListener("click", () => {
+            menuContents.tglClassAuto("show-menu");
+        });
+
+        $(window).click(function() {
+            menuContents.rmCl("show-menu");
+        });
+
+        $(navDiv).click(function(event){
+            event.stopPropagation();
+        });
+
+
+        document.addEventListener("scroll", (ev) => {
+            navbarToggle(window.scrollY<=navbar.scrollHeight + 20)
+        });
+
+        document.addEventListener("mousemove", (ev) => {
+            if(window.scrollY <= navbar.scrollHeight + 20)return;
+            navbarToggle((ev.clientY <= navbar.scrollHeight + 40) && (window.scrollY >= navbar.scrollHeight + 20))
+        });
+
+        function navbarToggle(bool) {
+            if(bool===null||bool === undefined)return;
+            bool?navbar.style.transform = `translateY(0px)`:navbar.style.transform = `translateY(-${navbar.scrollHeight}px)`
+        }
+    });
+
+</script>
